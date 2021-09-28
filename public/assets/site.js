@@ -54,9 +54,13 @@ const init = () => {
   });
 
   // SEARCH BAR SHOW/HIDE
-  const showSearchBar () => {
+  const searchIcon = document.querySelectorAll('[data-action="searchbar"]');
+  const showSearchBar = () => {
     console.log('show search bar');
   }
+  searchIcon.forEach(item => {
+    item.addEventListener('click', showSearchBar);
+  });
 }
 
 window.onload = init;
