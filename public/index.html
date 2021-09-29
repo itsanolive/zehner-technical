@@ -20,9 +20,19 @@
       <!-- Header Left area -->
       <div class="Header__Item HeaderLeft">
         <ul class="Header__Menu HorizontalMenu reset-style Mobile-flex">
-          <li class="Header__MainLink">
+          <li class="Header__MainLink" data-action="open-drawer" data-drawer="header-mobile-menu"
+          aria-label="Open Menu">
             <svg width="24" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path stroke="#000" stroke-width="2" d="M0 1h24M0 8h24M0 15h24" />
+            </svg>
+          </li>
+          <li class="Header__MainLink"
+            data-action="close-drawer"
+            data-drawer="header-mobile-menu"
+            aria-label="Close Menu"
+            style="display: none;">
+            <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="m1 1 14 14M1 15 15 1" stroke="#000" stroke-width="2" />
             </svg>
           </li>
           <li class="Header__MainLink" data-action="searchbar" aria-label="Search">
@@ -110,7 +120,23 @@
   </header>
 
   <div class="HeaderOverlays">
-    <div class="Header__MobileMenuOverlay"></div>
+
+    <div id="header-mobile-menu" class="Header__MobileMenuOverlay">
+      <div class="MobileMenu__NavContainer OverlaySection Menu">
+        <ul class="OverlayMenu reset-style">
+          <li>Shop All</li>
+          <li>Seats</li>
+          <li>Playards</li>
+          <li>Feeding</li>
+          <li>Bassinets</li>
+          <li>Bath</li>
+          <li>Mobile</li>
+          <br>
+          <li>Accessories</li>
+          <li>Spare Parts</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="Header__DesktopOverlays">
       <!-- divs with ids matching data-dropdown attribute on menu nav will display on hover -->
@@ -124,6 +150,9 @@
             <li>Bassinets</li>
             <li>Bath</li>
             <li>Mobile</li>
+            <br>
+            <li>Accessories</li>
+            <li>Spare Parts</li>
           </ul>
         </div>
         <div class="OverlaySection Feature">
@@ -151,6 +180,27 @@
     </div>
   </div>
 
+  <div class="HeaderSearchBar">
+    <form action="/search" class="HeaderSearchBar__Form">
+      <div class="grid-placeholder"></div>
+      <div class="HeaderSearchBar__InputContainer">
+        <span class="HeaderSearchBar__SearchIcon">
+          <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="7" stroke="#000" stroke-width="2" />
+            <path d="m17 17-3.5-3.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+        <input class="HeaderSearchBar__Input" type="text" placeholder="Search...">
+      </div>
+      <div class="HeaderSearchBar__Close" data-action="closeSearchBar">
+        <svg width="29" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#000" d="m26.842 0 1.387 1.441L1.387 27.27 0 25.83z" />
+          <path fill="#000" d="m28.494 26.018-1.381 1.447L.088 1.657 1.47.211z" />
+        </svg>
+      </div>
+    </form>
+  </div>
+
   <main>
     <div id="main"></div>
     <div class="Hero">
@@ -164,8 +214,105 @@
         <img class="Desktop" src="./images/hero-image.png" alt="">
       </div>
     </div>
-    <div class="IconsFeature"></div>
-    <div class="Categories"></div>
+
+    <div class="IconsFeature">
+      <div class="IconsFeature__Item">
+        <img class="IconsFeature__Item--image" src="" alt="">
+        <h2 class="IconsFeature__Item--title">Functional Design</h2>
+        <p class="IconsFeature__Item--description">Products designed to make parents lives easier</p>
+      </div>
+      <div class="IconsFeature__Item">
+        <img class="IconsFeature__Item--image" src="" alt="">
+        <h2 class="IconsFeature__Item--title">Functional Design</h2>
+        <p class="IconsFeature__Item--description">Products designed to make parents lives easier</p>
+      </div>
+      <div class="IconsFeature__Item">
+        <img class="IconsFeature__Item--image" src="" alt="">
+        <h2 class="IconsFeature__Item--title">Functional Design</h2>
+        <p class="IconsFeature__Item--description">Products designed to make parents lives easier</p>
+      </div>
+    </div>
+
+    <div class="Categories">
+      <div class="Categories__Item Categories__Item--1"
+        style="background-image: './images/cat-1.jpg';">
+        <div class="Categories__Item--title">
+          <h4>Shop Seats</h4>
+          <span class="Categories__Item--icon">
+            <svg width="11" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="m1 1.774 8.886 9.896-8.622 10.255" stroke="#000" stroke-width="2" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="Categories__Item Categories__Item--2"
+        style="background-image: './images/cat-2.jpg';">
+        <div class="Categories__Item--title">
+          <h4>Shop Seats</h4>
+          <span class="Categories__Item--icon">
+            <svg width="11" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="m1 1.774 8.886 9.896-8.622 10.255" stroke="#000" stroke-width="2" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="Categories__Item Categories__Item--3"
+        style="background-image: './images/cat-3.jpg';">
+        <div class="Categories__Item--title">
+          <h4>Shop Seats</h4>
+          <span class="Categories__Item--icon">
+            <svg width="11" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="m1 1.774 8.886 9.896-8.622 10.255" stroke="#000" stroke-width="2" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="Categories__Item Categories__Item--4"
+        style="background-image: './images/cat-4.jpg';">
+        <div class="Categories__Item--title">
+          <h4>Shop Seats</h4>
+          <span class="Categories__Item--icon">
+            <svg width="11" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="m1 1.774 8.886 9.896-8.622 10.255" stroke="#000" stroke-width="2" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="Categories__Item Categories__Item--5"
+        style="background-image: './images/cat-5.jpg';">
+        <div class="Categories__Item--title">
+          <h4>Shop Seats</h4>
+          <span class="Categories__Item--icon">
+            <svg width="11" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="m1 1.774 8.886 9.896-8.622 10.255" stroke="#000" stroke-width="2" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="Categories__Item Categories__Item--6"
+        style="background-image: './images/cat-6.jpg';">
+        <div class="Categories__Item--title">
+          <h4>Shop Seats</h4>
+          <span class="Categories__Item--icon">
+            <svg width="11" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="m1 1.774 8.886 9.896-8.622 10.255" stroke="#000" stroke-width="2" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+
     <div class="Promo1"></div>
     <div class="Promo2"></div>
     <div class="Testimonials"></div>

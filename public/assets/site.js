@@ -1,15 +1,51 @@
 const init = () => {
   // Calculate announcement bar and header height;
-  const headerHeight = document.querySelector('.AnnouncementBar').scrollHeight + document.querySelector('.SiteHeader').scrollHeight + 'px';
-  console.log('headerHeight', headerHeight);
+  const fullHeaderHeight = document.querySelector('.AnnouncementBar').scrollHeight + document.querySelector('.SiteHeader').scrollHeight + 'px',
+    announcementHeight = document.querySelector('.AnnouncementBar').scrollHeight + 'px', 
+    headerHeight = document.querySelector('.SiteHeader').scrollHeight + 'px';
 
-  // Header Dropdowns
+  // Mobile menu drawer/overlay
+  const drawerOpenEls = document.querySelectorAll('[data-action="open-drawer"]'),
+    drawerCloseEls = document.querySelectorAll('[data-action="close-drawer"]');
+
+  console.log('drawerOpenEls', drawerOpenEls);
+  console.log('drawerCloseEls', drawerCloseEls);
+
+  const drawerToggle = (e) => {
+    const target = e.target.closest('[data-action]'),
+      drawerAction = target.getAttribute('data-action'),
+      drawerId = target.getAttribute('data-drawer'),
+      drawerEl = document.getElementById(drawerId);
+
+    if (drawerAction === 'open-drawer') {
+      // show drawer, hide open element, show closest closest close element to trigger
+      drawerEl.style.display = 'block';
+      target.style.display = 'none';
+      document.querySelector(`[data-action="close-drawer"][data-drawer="${drawerId}"]`).style.display = 'flex';
+    } else if (drawerAction === 'close-drawer') {
+      // hide drawer, show open element, hide close element
+      drawerEl.style.display = 'none';
+      target.style.display = 'none';
+      document.querySelector(`[data-action="open-drawer"][data-drawer="${drawerId}"]`).style.display = 'flex';
+    } else {
+      console.error('Error: check drawer action config');
+    }
+  }
+
+  drawerOpenEls.forEach(item => {
+    item.addEventListener('click', drawerToggle);
+  });
+
+  drawerCloseEls.forEach(item => {
+    item.addEventListener('click', drawerToggle);
+  });
+
+  // Header Dropdowns - Desktop
   // Keep overlay open on mouseover, close on exit
   const menuDropdownKeep = (e) => {
     const context = e.type,
       dropdownArea = e.target;
     if (context === 'mouseover') {
-      console.log('mouseover dropdown area');
       dropdownArea.style.display = 'flex';
     } else {
       dropdownArea.setAttribute('style', 'display: none;');
@@ -26,14 +62,9 @@ const init = () => {
     showMenu.addEventListener('mouseleave', menuDropdownKeep);
 
     if (context === 'mouseover') {
-      // console.log('mouseover dropdown link');
-      showMenu.setAttribute('style', `display: flex; top: ${headerHeight};`);
+      showMenu.setAttribute('style', `display: flex; top: ${fullHeaderHeight};`);
     } else {
       showMenu.setAttribute('style', 'display: none;');
-      // console.log('mouse leave dropdown link');
-      // setTimeout(function () {
-      //   showMenu.setAttribute('style', 'display: none;');
-      // }, 500);
     }
   }
 
@@ -45,7 +76,6 @@ const init = () => {
     item.addEventListener('mouseleave', menuDropdown);
   });
 
-  console.log('headerDropdownOverlays', headerDropdownOverlays);
   headerDropdownOverlays.forEach(item => {
     if (item.style.display === 'flex') {
       item.addEventListener('mouseover', menuDropdownKeep);
@@ -54,9 +84,24 @@ const init = () => {
   });
 
   // SEARCH BAR SHOW/HIDE
-  const searchIcon = document.querySelectorAll('[data-action="searchbar"]');
+  const searchIcon = document.querySelectorAll('[data-action="searchbar"]'),
+    searchBarEl = document.querySelector('.HeaderSearchBar'),
+    searchBarInput = document.querySelector('.HeaderSearchBar__Input'),
+    searchBarClose = document.querySelector('[data-action="closeSearchBar"]');
+
   const showSearchBar = () => {
-    console.log('show search bar');
+    searchBarEl.style.display = 'block';
+    searchBarEl.style.top = announcementHeight;
+    searchBarEl.style.height = headerHeight;
+
+    searchBarClose.addEventListener('click', () => {
+      searchBarEl.style.display = 'none';
+    })
+
+    // placeholder for predictive search
+    // searchBarInput.addEventListener('change', () => {
+    //   console.log('predictive search update placeholder');
+    // })
   }
   searchIcon.forEach(item => {
     item.addEventListener('click', showSearchBar);

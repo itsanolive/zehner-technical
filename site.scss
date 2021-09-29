@@ -1,7 +1,10 @@
 /* FONTS */
 @import url('http://fonts.cdnfonts.com/css/century-gothic');
 
-/* BASE STYLES */
+/* ******************************************
+  BASE STYLES
+****************************************** */
+
 body {
   margin: 0;
   font-family: 'Century Gothic', sans-serif;
@@ -45,9 +48,9 @@ ul.reset-style {
   justify-content: center;
 }
 
-/* *********************
+/* ******************************************
   BUTTONS
-********************* */
+****************************************** */
 .btn {
   text-decoration: none;
   color: #fff;
@@ -60,9 +63,9 @@ ul.reset-style {
 }
 
 
-/* *********************
+/* ******************************************
   ANNOUNCEMENT BAR
-********************* */
+****************************************** */
 .AnnouncementBar {
   display: block;
   max-width: 100%;
@@ -72,7 +75,9 @@ ul.reset-style {
   background-color: #000;
 }
 
-/* HEADER */
+/* ******************************************
+  HEADER
+****************************************** */
 .SiteHeader {
   display: flex;
   padding: 0 18px;
@@ -138,35 +143,6 @@ ul.reset-style {
   }
 }
 
-// HEADER MENU OVERLAYS - DESKTOP
-.Header__DesktopOverlay {
-  position: absolute;
-  background-color: #fff;
-  // z-index: -1;
-  padding: 36px 95px;
-
-  .OverlaySection {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    &.Menu {
-      min-width: 182px;
-
-      .OverlayMenu li {
-        line-height: 3.2;
-      }
-    }
-
-    &.Feature {
-      display: flex;
-      margin-left: 19%;
-      justify-content: flex-start;
-      max-width: 45%;
-    }
-  }
-}
-
 .HeaderLeft .Header__MainLink,
 .HeaderRight .Header__MainLink {
   padding: 0 11px;
@@ -186,6 +162,11 @@ ul.reset-style {
   }
 }
 
+.Header__MainLink[data-action='searchbar'],
+.HeaderSearchBar__Close {
+  cursor: pointer;
+}
+
 .HeaderRight .HorizontalMenu {
   @media (min-width: 1025px) {
     width: 100%;
@@ -193,9 +174,93 @@ ul.reset-style {
   }
 }
 
-/* *************************
+// HEADER MOBILE MENU OVERLAY/DRAWER
+.Header__MobileMenuOverlay {
+  width: 75%;
+  height: 100%;
+  position: absolute;
+  display: none;
+  background-color: #fff;
+}
+
+.MobileMenuOverlay__DrawerHeader {
+  min-height: 78px;
+  padding-left: 23px;
+}
+
+.MobileMenu__NavContainer {
+  padding-left: 23px;
+}
+
+// HEADER MENU OVERLAYS - DESKTOP
+.Header__DesktopOverlay {
+  position: absolute;
+  background-color: #fff;
+  // z-index: -1;
+  padding: 36px 95px;
+}
+
+.OverlaySection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &.Menu {
+    min-width: 182px;
+
+    .OverlayMenu li {
+      line-height: 3.2;
+    }
+  }
+
+  &.Feature {
+    display: flex;
+    margin-left: 19%;
+    justify-content: flex-start;
+    max-width: 45%;
+  }
+}
+
+/* HEADER SEARCH BAR */
+.HeaderSearchBar {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+}
+
+.HeaderSearchBar__Form {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 18fr 1fr;
+}
+
+.HeaderSearchBar__InputContainer {
+  display: flex;
+  border-bottom: 1px solid #000;
+  padding: 10px;
+}
+
+.HeaderSearchBar__Input {
+  border: none;
+  width: 100%;
+  padding-left: 13px;
+  font-family: 'Century Gothic', sans-serif;
+  color: #000;
+}
+
+.HeaderSearchBar__Close {
+  position: absolute;
+  top: 23px;
+  right: 20px;
+}
+
+/* **********************************************
 HERO SECTION
-************************* */
+********************************************** */
 
 .Hero {
   background-color: #E9E9E9;
@@ -247,7 +312,49 @@ HERO SECTION
   }
 }
 
-/* VISIBILITY UTILITIES */
+/* **********************************************
+ICON FEATURE
+********************************************** */
+
+
+/* **********************************************
+CATEGORIES GRID
+********************************************** */
+
+
+/* **********************************************
+PROMO 1 - FREATURE PRODUCT
+********************************************** */
+
+
+/* **********************************************
+PROMO 2 - CARD OVERLAY
+********************************************** */
+
+
+/* **********************************************
+TESTIMONIALS
+********************************************** */
+
+
+/* **********************************************
+SOCIAL FEATURE
+********************************************** */
+
+
+/* **********************************************
+AWARDS
+********************************************** */
+
+
+/* **********************************************
+FOOTER
+********************************************** */
+
+
+/* **********************************************
+VISIBILITY UTILITIES
+********************************************** */
 .Desktop-flex {
   display: none;
 
