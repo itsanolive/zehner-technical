@@ -8,9 +8,6 @@ const init = () => {
   const drawerOpenEls = document.querySelectorAll('[data-action="open-drawer"]'),
     drawerCloseEls = document.querySelectorAll('[data-action="close-drawer"]');
 
-  console.log('drawerOpenEls', drawerOpenEls);
-  console.log('drawerCloseEls', drawerCloseEls);
-
   const drawerToggle = (e) => {
     const target = e.target.closest('[data-action]'),
       drawerAction = target.getAttribute('data-action'),
